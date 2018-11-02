@@ -1,5 +1,6 @@
 package geometrie;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,8 @@ class PunktTest
     @BeforeAll
     public static void create()
     {
-        System.out.println("Punkt Test Initialisierung");
+        System.out.println("Punkt Test SetUp");
+        System.out.println("--------------------");
         myPunkt = new Punkt(0,0);
         myPunkt2 = new Punkt (2,0);
         myPunkt3 = new Punkt (2,0);
@@ -45,4 +47,12 @@ class PunktTest
         System.out.println("Equals Test");
         assertTrue(myPunkt2.equals(myPunkt3));
     }
+
+    @AfterAll
+    static void ende()
+    {
+        System.out.println();
+        System.out.println();
+    }
+
 }

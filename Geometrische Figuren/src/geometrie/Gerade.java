@@ -12,7 +12,8 @@ public class Gerade
 
     Gerade (Punkt start, Punkt ende)
     {
-
+        startPos = start;
+        endPos = ende;
     }
 
     public Punkt getStartPos()
