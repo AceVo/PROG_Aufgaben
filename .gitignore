@@ -1,3 +1,6 @@
 Test/*
 Flugzeug/.idea/*
 Geometrische Figuren/.idea/*
+*/out/*
+*/.idea/*
+*.iml
