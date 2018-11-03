@@ -29,7 +29,7 @@ class PunktTest
 
     @Test void abstand()
     {
-        System.out.println("Abstand Test"   );
+        System.out.println("Abstand Test");
         assertEquals(2,myPunkt.abstand(myPunkt2));
         assertEquals(2,myPunkt2.abstand(myPunkt));
         assertEquals(Math.sqrt(200),myPunkt4.abstand(myPunkt));
