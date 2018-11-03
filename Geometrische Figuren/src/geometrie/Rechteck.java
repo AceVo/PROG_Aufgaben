@@ -22,7 +22,7 @@ public class Rechteck extends Figur2D
     @Override
     double flaeche()
     {
-        return breite*laenge();
+        return breite*laenge;
     }
 
     public int getBreite()
