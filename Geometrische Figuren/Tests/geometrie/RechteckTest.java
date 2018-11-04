@@ -1,5 +1,6 @@
 package geometrie;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,4 +62,11 @@ class RechteckTest
         assertFalse(myRechteck1.umfangKleinerAls(myRechteck3));
 
     }
+
+    @AfterAll
+    static void ende()
+    {
+        System.out.println("\n");
+    }
+
 }
