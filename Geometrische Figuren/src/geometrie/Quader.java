@@ -11,7 +11,7 @@ public class Quader extends Figur3D
         setHoehe(hoehe);
     }
 
-    public double langeRaumdiagonale()
+    public double laengeRaumdiagonale()
     {
         int l = getBoden().getLaenge();
         int b = getBoden().getBreite();
