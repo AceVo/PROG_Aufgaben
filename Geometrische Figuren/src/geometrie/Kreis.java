@@ -5,13 +5,13 @@ public class Kreis extends Figur2D
     private static final int DEFAULT_RADIUS = 5;
     private int radius;
 
-    Kreis(Punkt bezug,int radius)
+    public Kreis(Punkt bezug,int radius)
     {
         super(bezug);
         this.setRadius(radius);
     }
 
-    Kreis(Punkt bezug)
+    public Kreis(Punkt bezug)
     {
         this(bezug,DEFAULT_RADIUS);
     }
@@ -37,4 +37,5 @@ public class Kreis extends Figur2D
     {
         this.radius = radius > 0 ? radius : 1;
     }
+
 }

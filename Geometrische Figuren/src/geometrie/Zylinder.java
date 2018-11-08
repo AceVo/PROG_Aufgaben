@@ -5,7 +5,7 @@ public class Zylinder extends Figur3D
 
     private int hoehe;
 
-    Zylinder(Kreis k, int hoehe)
+    public Zylinder(Kreis k, int hoehe)
     {
         super(k);
         setHoehe(hoehe);
@@ -32,4 +32,11 @@ public class Zylinder extends Figur3D
     {
         this.hoehe = hoehe > 0 ? hoehe : 1;
     }
+
+    public Kreis getBoden()
+    {
+        Figur2D myBoden = super.getBoden();
+        return (Kreis) myBoden;
+    }
+
 }

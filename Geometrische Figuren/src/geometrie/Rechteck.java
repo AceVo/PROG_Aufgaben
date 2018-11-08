@@ -7,7 +7,7 @@ public class Rechteck extends Figur2D
     private int breite;
     private int laenge;
 
-    Rechteck(Punkt bezug,int b, int l)
+    public Rechteck(Punkt bezug,int b, int l)
     {
         super(bezug);
         this.setBreite(b);
