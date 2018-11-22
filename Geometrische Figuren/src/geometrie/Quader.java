@@ -63,6 +63,11 @@ public class Quader extends Figur3D
         return (Rechteck) myBoden;
     }
 
+    public void setBoden(Rechteck boden)
+    {
+        super.setBoden(boden);
+    }
+
     public boolean equals(Figur3D f)
     {
         if (f instanceof Quader)

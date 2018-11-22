@@ -39,4 +39,9 @@ public class Zylinder extends Figur3D
         return (Kreis) myBoden;
     }
 
+    public void setBoden(Kreis boden)
+    {
+        super.setBoden(boden);
+    }
+
 }
