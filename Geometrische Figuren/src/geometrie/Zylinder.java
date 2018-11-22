@@ -12,13 +12,13 @@ public class Zylinder extends Figur3D
     }
 
     @Override
-    double volumen()
+    public double volumen()
     {
         return (super.getBoden().flaeche()*hoehe);
     }
 
     @Override
-    double oberflaeche()
+    public double oberflaeche()
     {
         return (2*super.getBoden().flaeche()+super.getBoden().umfang()*hoehe);
     }

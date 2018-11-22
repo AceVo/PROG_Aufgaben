@@ -5,12 +5,12 @@ public abstract class Figur2D
     private Punkt bezug;
 
 
-    Figur2D(Punkt bezug)
+    public Figur2D(Punkt bezug)
     {
         this.bezug = bezug;
     }
 
-    Figur2D(int bezugX, int bezugY)
+    public Figur2D(int bezugX, int bezugY)
     {
         this.bezug = new Punkt(bezugX,bezugY);
     }
@@ -25,7 +25,7 @@ public abstract class Figur2D
         this.bezug = bezug;
     }
 
-    abstract double umfang();
+    public abstract double umfang();
 
-    abstract double flaeche();
+    public abstract double flaeche();
 }

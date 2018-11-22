@@ -17,13 +17,13 @@ public class Kreis extends Figur2D
     }
 
     @Override
-    double umfang()
+    public double umfang()
     {
         return Math.PI*2*radius;
     }
 
     @Override
-    double flaeche()
+    public double flaeche()
     {
         return Math.PI*Math.pow(radius,2);
     }

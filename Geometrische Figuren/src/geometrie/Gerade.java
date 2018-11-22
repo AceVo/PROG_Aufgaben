@@ -10,7 +10,7 @@ public class Gerade
         this(new Punkt(0,0),new Punkt(1,0));
     }*/
 
-    Gerade (Punkt start, Punkt ende)
+    public Gerade (Punkt start, Punkt ende)
     {
         startPos = start;
         endPos = ende;

@@ -14,13 +14,13 @@ public class Rechteck extends Figur2D
         this.setLaenge(l);
     }
     @Override
-    double umfang()
+    public double umfang()
     {
         return 2*breite+2*laenge;
     }
 
     @Override
-    double flaeche()
+    public double flaeche()
     {
         return breite*laenge;
     }

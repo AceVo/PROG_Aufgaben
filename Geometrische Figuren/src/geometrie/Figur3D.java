@@ -5,7 +5,7 @@ public abstract class Figur3D
 
     private Figur2D boden;
 
-    Figur3D(Figur2D f)
+    public Figur3D(Figur2D f)
     {
         boden = f;
     }
@@ -20,8 +20,8 @@ public abstract class Figur3D
         this.boden = boden;
     }
 
-    abstract double volumen();
+    public abstract double volumen();
 
-    abstract double oberflaeche();
+    public abstract double oberflaeche();
 
 }

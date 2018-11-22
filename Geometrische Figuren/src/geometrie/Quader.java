@@ -32,13 +32,13 @@ public class Quader extends Figur3D
     }
 
     @Override
-    double volumen()
+    public double volumen()
     {
         return getBoden().getLaenge()*getBoden().getBreite()*hoehe;
     }
 
     @Override
-    double oberflaeche()
+    public double oberflaeche()
     {
         int l = getBoden().getLaenge();
         int b = getBoden().getBreite();
