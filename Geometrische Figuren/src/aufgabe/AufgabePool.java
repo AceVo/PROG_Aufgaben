@@ -16,32 +16,55 @@ public class AufgabePool
         z1 = new Zylinder(new Kreis(new Punkt(949-(q.getBoden().getBreite()/2),390),q.getBoden().getBreite()/2),hoehe);
         z2 = new Zylinder(new Kreis(new Punkt(0,390),(q.getBoden().getBreite()-20)/4),hoehe);
         z3 = new Zylinder(new Kreis(new Punkt(0,74+z2.getBoden().getRadius()*2),z2.getBoden().getRadius()),hoehe);
-
     }
 
     public double poolVolumen()
     {
-        return 0;
+
+        return q.volumen() + z1.volumen() / 2 + z2.volumen();
     }
 
     public double poolUmfang()
     {
-        return 0;
+        double z1Umfang, qUmfang, z2Umfang;
+
+        z1Umfang = z1.getBoden().umfang() / 2;
+        z2Umfang = z2.getBoden().umfang();
+        qUmfang = 2 * q.getBoden().getLaenge() + q.getBoden().getBreite() - 2 * z2.getBoden().getRadius() * 2;
+
+        return z1Umfang + z2Umfang + qUmfang;
     }
 
     public double poolInnererMantel()
     {
-        return 0;
+        double z1Mantel, qMantel, z2Mantel;
+        Rechteck myRechteck1 = new Rechteck(q.getBoden().getBezug(),q.getBoden().getBreite(),q.getHoehe());
+        Rechteck myRechteck2 = new Rechteck(q.getBoden().getBezug(),
+                2 * z2.getBoden().getRadius(), q.getHoehe());
+
+        z1Mantel = (z1.oberflaeche() - z1.getBoden().flaeche()) / 2;
+        z2Mantel = z2.oberflaeche() - z2.getBoden().flaeche();
+        qMantel = q.oberflaeche() - q.getBoden().flaeche() - myRechteck1.flaeche() - 2 * myRechteck2.flaeche();
+
+        return z1Mantel + z2Mantel + qMantel;
     }
 
     public double poolWasserOberflaeche()
     {
-        return 0;
+        double z1Oberflaeche, qOberflaeche, z2Oberflaeche;
+
+        z1Oberflaeche = z1.getBoden().flaeche() / 2;
+        qOberflaeche = q.getBoden().flaeche();
+        z2Oberflaeche = z2.getBoden().flaeche();
+
+        return z1Oberflaeche + z2Oberflaeche + qOberflaeche;
     }
 
     public double kostenZaun (double preisProStueck)
     {
-        return 0;
+        double preis = preisProStueck > 0 ? preisProStueck : 1.75;
+
+        return (int) Math.ceil(this.poolUmfang()/5) * preis;
     }
 
     public Quader getQ ()
