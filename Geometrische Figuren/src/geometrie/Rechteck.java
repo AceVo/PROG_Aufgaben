@@ -47,8 +47,9 @@ public class Rechteck extends Figur2D
 
     public double diagonalenLaenge()
     {
-        Punkt hilf = new Punkt(super.getBezug().getxKoordinate()+laenge,super.getBezug().getyKoordinate()+laenge);
-        return super.getBezug().abstand(hilf);
+        Punkt p1 = this.getBezug();
+        Punkt p2 = new Punkt(p1.getXKoordinate()+this.laenge,p1.getYKoordinate()+this.breite);
+        return p1.abstand(p2);
     }
 
     public boolean flaecheKleinerAls(Figur2D f)
