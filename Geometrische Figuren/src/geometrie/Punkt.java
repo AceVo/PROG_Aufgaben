@@ -21,30 +21,30 @@ public class Punkt
         this(p2.xKoordinate,p2.yKoordinate);
     }
 
-    public int getxKoordinate()
+    public int getXKoordinate()
     {
         return xKoordinate;
     }
 
-    public void setxKoordinate(int xKoordinate)
+    public void setXKoordinate(int xKoord)
     {
-        this.xKoordinate = xKoordinate;
+        this.xKoordinate = xKoord;
     }
 
-    public int getyKoordinate()
+    public int getYKoordinate()
     {
         return yKoordinate;
     }
 
-    public void setyKoordinate(int yKoordinate)
+    public void setYKoordinate(int yKoord)
     {
-        this.yKoordinate = yKoordinate;
+        this.yKoordinate = yKoord;
     }
 
     public double abstand(Punkt p)
     {
-        double erg1=Math.pow(xKoordinate-p.getxKoordinate(),2);
-        double erg2=Math.pow(yKoordinate-p.getyKoordinate(),2);
+        double erg1=Math.pow(xKoordinate-p.getXKoordinate(),2);
+        double erg2=Math.pow(yKoordinate-p.getYKoordinate(),2);
         return Math.sqrt(erg1+erg2);
     }
 
@@ -56,7 +56,7 @@ public class Punkt
 
     public boolean equals (Punkt p1)
     {
-        if (xKoordinate==p1.getxKoordinate() && yKoordinate==p1.yKoordinate)
+        if (xKoordinate==p1.getXKoordinate() && yKoordinate==p1.yKoordinate)
         {
             return true;
         }
