@@ -41,8 +41,8 @@ class PunktTest
     {
         System.out.println("Verschieben Test");
         myPunkt.verschieben(2,0);
-        assertEquals(2,myPunkt.getxKoordinate());
-        assertEquals(0, myPunkt.getyKoordinate());
+        assertEquals(2,myPunkt.getXKoordinate());
+        assertEquals(0, myPunkt.getYKoordinate());
     }
 
     @Test void equals()
