@@ -78,7 +78,21 @@ public class List implements IList
 
     public IValueElement getElementAt(int position)
     {
-       return null;
+        if(head.getSuccessor()!=null && position <= laenge && position >0)
+        {
+            int i = 1;
+            IListElement actualElement = head.getSuccessor();
+            while (i < position)
+            {
+                actualElement = actualElement.getSuccessor();
+                i++;
+            }
+            return actualElement.getValueElement();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public int getFirstPosOf(IValueElement value)

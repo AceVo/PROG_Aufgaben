@@ -77,6 +77,16 @@ class IListTest
 
     @Test void getElementAt()
     {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement3);
+
+        assertTrue(myList.getElementAt(1)==myValueElement1);
+        assertTrue(myList.getElementAt(2)==myValueElement2);
+        assertTrue(myList.getElementAt(3)==myValueElement3);
+        assertNull(myList.getElementAt(0));
+        assertNull(myList.getElementAt(-1));
+        assertNull(myList.getElementAt(4));
     }
 
     @Test void getFirstPosOf()
