@@ -11,7 +11,6 @@ public class List implements IList
     public List()
     {
         head = new ListElement(new ValueElement("Kopf", 0));
-        head.setPredecessor(head);
     }
 
     public IListElement getHead()
@@ -22,10 +21,20 @@ public class List implements IList
     public void insertAtTheEnd(IValueElement value)
     {
         ListElement newItem = new ListElement(value);
+        IListElement lastElement;
 
-        head.getPredecessor().setSuccessor(newItem);
-        newItem.setPredecessor(head.getPredecessor());
+        if(head.getPredecessor()==null)
+        {
+            lastElement = head;
+        }
+        else
+        {
+            lastElement = head.getPredecessor();
+        }
+
+        newItem.setPredecessor(lastElement);
         newItem.setSuccessor(null);
+        lastElement.setSuccessor(newItem);
         head.setPredecessor(newItem);
     }
 
