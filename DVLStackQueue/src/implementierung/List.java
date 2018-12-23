@@ -7,6 +7,7 @@ import schnittstellen.IValueElement;
 public class List implements IList
 {
     private ListElement head;
+    private int laenge=0;
 
     public List()
     {
@@ -36,29 +37,48 @@ public class List implements IList
         newItem.setSuccessor(null);
         lastElement.setSuccessor(newItem);
         head.setPredecessor(newItem);
+        laenge++;
     }
 
     public void insertAtPos(int pos, IValueElement value)
     {
         ListElement newItem = new ListElement(value);
-        IListElement elementBeforePos = this.findPosition(pos);
+        IListElement oldElementAtPos = findElementAtPosition(pos);
 
-        newItem.setSuccessor(elementBeforePos.getSuccessor());
-        newItem.setPredecessor(elementBeforePos);
-        elementBeforePos.setSuccessor(newItem);
-        if (newItem.getSuccessor() != null)
+        if(pos<=1)
         {
-            newItem.getSuccessor().setPredecessor(newItem);
+            newItem.setPredecessor(head);
+            newItem.setSuccessor(head.getSuccessor());
+            head.setSuccessor(newItem);
+            if(newItem.getSuccessor()==null)
+            {
+                head.setPredecessor(newItem);
+            }
+            else
+            {
+                newItem.getSuccessor().setPredecessor(newItem);
+            }
+        }
+        else if (pos>laenge)
+        {
+            newItem.setPredecessor(head.getPredecessor());
+            newItem.setSuccessor(null);
+            head.setPredecessor(newItem);
+            newItem.getPredecessor().setSuccessor(newItem);
         }
         else
         {
-            head.setPredecessor(newItem);
+            newItem.setSuccessor(oldElementAtPos);
+            newItem.setPredecessor(oldElementAtPos.getPredecessor());
+            oldElementAtPos.setPredecessor(newItem);
+            newItem.getPredecessor().setSuccessor(newItem);
         }
+        laenge++;
     }
 
     public IValueElement getElementAt(int position)
     {
-        return null;
+       return null;
     }
 
     public int getFirstPosOf(IValueElement value)
@@ -86,17 +106,19 @@ public class List implements IList
 
     }
 
-    private IListElement findPosition (int searchPos)
+    private IListElement findElementAtPosition(int searchPos)
     {
         int i = 0;
         IListElement actualElement = head;
 
-        while (i<searchPos && actualElement.getSuccessor() != null)
+        if(head.getSuccessor()!=null)
         {
-            actualElement = actualElement.getSuccessor();
-            i++;
+            while (i < searchPos && actualElement.getSuccessor() != null)
+            {
+                actualElement = actualElement.getSuccessor();
+                i++;
+            }
         }
-
         return actualElement;
     }
 }

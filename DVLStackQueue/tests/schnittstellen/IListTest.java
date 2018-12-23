@@ -54,6 +54,25 @@ class IListTest
 
     @Test void insertAtPos()
     {
+        assertTrue(myList.getHead().getValueElement().getValue()==0);
+        assertNull(myList.getHead().getSuccessor());
+        assertNull(myList.getHead().getPredecessor());
+
+        myList.insertAtPos(0,myValueElement1);
+        assertTrue(myList.getHead().getSuccessor().getValueElement()==myValueElement1);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement1);
+        assertNull(myList.getHead().getPredecessor().getSuccessor());
+
+        myList.insertAtPos(10,myValueElement2);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getHead().getPredecessor().getPredecessor().getValueElement()==myValueElement1);
+        assertTrue(myList.getHead().getSuccessor().getValueElement()==myValueElement1);
+        assertNull(myList.getHead().getPredecessor().getSuccessor());
+
+        myList.insertAtPos(2,myValueElement3);
+        assertTrue(myList.getHead().getSuccessor().getValueElement()==myValueElement1);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getHead().getPredecessor().getPredecessor().getValueElement()==myValueElement3);
     }
 
     @Test void getElementAt()
