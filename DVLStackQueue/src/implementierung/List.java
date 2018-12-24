@@ -115,7 +115,22 @@ public class List implements IList
 
     public void deleteFirstOf(IValueElement value)
     {
+        IListElement actualElement = findElementAtPosition(getFirstPosOf(value));
 
+        if (actualElement!=null && actualElement!=head)
+        {
+            if (actualElement.getSuccessor() == null)
+            {
+                actualElement.getPredecessor().setSuccessor(null);
+                head.setPredecessor(actualElement.getPredecessor());
+            }
+            else
+            {
+                actualElement.getPredecessor().setSuccessor(actualElement.getSuccessor());
+                actualElement.getSuccessor().setPredecessor(actualElement.getPredecessor());
+            }
+            laenge--;
+        }
     }
 
     public void deleteAllOf(IValueElement value)
@@ -135,17 +150,24 @@ public class List implements IList
 
     private IListElement findElementAtPosition(int searchPos)
     {
-        int i = 0;
-        IListElement actualElement = head;
-
-        if(head.getSuccessor()!=null)
+        if (searchPos>=0)
         {
-            while (i < searchPos && actualElement.getSuccessor() != null)
+            int i = 0;
+            IListElement actualElement = head;
+
+            if (head.getSuccessor() != null)
             {
-                actualElement = actualElement.getSuccessor();
-                i++;
+                while (i < searchPos && actualElement.getSuccessor() != null)
+                {
+                    actualElement = actualElement.getSuccessor();
+                    i++;
+                }
             }
+            return actualElement;
         }
-        return actualElement;
+        else
+        {
+            return null;
+        }
     }
 }

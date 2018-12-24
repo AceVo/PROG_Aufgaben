@@ -112,6 +112,27 @@ class IListTest
 
     @Test void deleteFirstOf()
     {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement3);
+
+        myList.deleteFirstOf(myValueElement3);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getHead().getPredecessor().getPredecessor().getValueElement()==myValueElement1);
+
+        myList.deleteFirstOf(myValueElement1);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getElementAt(1)==myValueElement2);
+
+        myList.deleteFirstOf(myValueElement1);
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getElementAt(1)==myValueElement2);
+
+        myList.deleteFirstOf(myList.getHead().getValueElement());
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement2);
+        assertTrue(myList.getElementAt(1)==myValueElement2);
+        assertTrue(myList.getHead().getValueElement().getValue()==0);
+        assertTrue(myList.getHead().getValueElement().getName()=="Kopf");
     }
 
     @Test void deleteAllOf()
