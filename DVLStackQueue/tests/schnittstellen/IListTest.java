@@ -185,4 +185,14 @@ class IListTest
         assertTrue(myList.getHead().getSuccessor().getPredecessor()==myList.getHead());
 
     }
+
+    @Test void String()
+    {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement3);
+        myList.insertAtTheEnd(myValueElement4);
+
+        System.out.println(myList.toString());
+    }
 }

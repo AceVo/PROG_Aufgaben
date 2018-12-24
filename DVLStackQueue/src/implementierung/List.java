@@ -164,6 +164,23 @@ public class List implements IList
         actualElement.setPredecessor(head);
     }
 
+    public String toString()
+    {
+        String ausgabe = "";
+        IListElement actualElement = head;
+        int i = 0;
+        do
+        {
+            ausgabe += "Position: " + i + "; Name: " + actualElement.getValueElement().getName()
+                            + "; Wert: " + actualElement.getValueElement().getValue() + "\r\n";
+            i++;
+            actualElement = actualElement.getSuccessor();
+        }
+        while(actualElement != null);
+
+        return ausgabe;
+    }
+
     private IListElement findElementAtPosition(int searchPos)
     {
         if (searchPos>=0)
