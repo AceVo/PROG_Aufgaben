@@ -154,6 +154,16 @@ class IListTest
 
     @Test void member()
     {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement3);
+
+        assertTrue(myList.member(myValueElement1));
+        assertTrue(myList.member(myValueElement2));
+        assertTrue(myList.member(myValueElement3));
+        assertFalse(myList.member(myValueElement4));
+        assertTrue(myList.member(myList.getHead().getValueElement()));
     }
 
     @Test void reverse()

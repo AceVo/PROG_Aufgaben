@@ -131,7 +131,7 @@ public class List implements IList
 
     public boolean member(IValueElement value)
     {
-        return false;
+        return getFirstPosOf(value) >= 0;
     }
 
     public void reverse()
