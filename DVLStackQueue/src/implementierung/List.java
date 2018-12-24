@@ -97,7 +97,20 @@ public class List implements IList
 
     public int getFirstPosOf(IValueElement value)
     {
-        return 0;
+        int i;
+        IListElement actualElement = head;
+        for (i = 0; i <= laenge; i++)
+        {
+            if (actualElement.getValueElement() == value)
+            {
+                return i;
+            }
+            else
+            {
+                actualElement = actualElement.getSuccessor();
+            }
+        }
+        return -1;
     }
 
     public void deleteFirstOf(IValueElement value)

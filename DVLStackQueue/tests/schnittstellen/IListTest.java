@@ -91,6 +91,23 @@ class IListTest
 
     @Test void getFirstPosOf()
     {
+        assertTrue(myList.getFirstPosOf(myList.getHead().getValueElement())==0);
+
+        myList.insertAtTheEnd(myValueElement1);
+        assertTrue(myList.getFirstPosOf(myList.getHead().getValueElement())==0);
+        assertTrue(myList.getFirstPosOf(myValueElement1)==1);
+
+        myList.insertAtTheEnd(myValueElement2);
+        assertTrue(myList.getFirstPosOf(myList.getHead().getValueElement())==0);
+        assertTrue(myList.getFirstPosOf(myValueElement1)==1);
+        assertTrue(myList.getFirstPosOf(myValueElement2)==2);
+
+        myList.insertAtPos(2,myValueElement3);
+        assertTrue(myList.getFirstPosOf(myList.getHead().getValueElement())==0);
+        assertTrue(myList.getFirstPosOf(myValueElement1)==1);
+        assertTrue(myList.getFirstPosOf(myValueElement2)==3);
+        assertTrue(myList.getFirstPosOf(myValueElement3)==2);
+        assertTrue(myList.getFirstPosOf(myValueElement4)==-1);
     }
 
     @Test void deleteFirstOf()
