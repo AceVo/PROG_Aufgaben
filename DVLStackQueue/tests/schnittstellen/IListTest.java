@@ -137,6 +137,19 @@ class IListTest
 
     @Test void deleteAllOf()
     {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement3);
+
+        myList.deleteAllOf(myValueElement1);
+        assertTrue(myList.getFirstPosOf(myValueElement1)==-1);
+        assertTrue(myList.getFirstPosOf(myValueElement2)==1);
+        assertTrue(myList.getFirstPosOf(myValueElement3)==2);
+
+        myList.deleteAllOf(myList.getHead().getValueElement());
+        assertTrue(myList.getFirstPosOf(myValueElement2)==1);
+        assertTrue(myList.getFirstPosOf(myValueElement3)==2);
     }
 
     @Test void member()

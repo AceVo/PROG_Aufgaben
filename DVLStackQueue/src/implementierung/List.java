@@ -115,27 +115,18 @@ public class List implements IList
 
     public void deleteFirstOf(IValueElement value)
     {
-        IListElement actualElement = findElementAtPosition(getFirstPosOf(value));
-
-        if (actualElement!=null && actualElement!=head)
-        {
-            if (actualElement.getSuccessor() == null)
-            {
-                actualElement.getPredecessor().setSuccessor(null);
-                head.setPredecessor(actualElement.getPredecessor());
-            }
-            else
-            {
-                actualElement.getPredecessor().setSuccessor(actualElement.getSuccessor());
-                actualElement.getSuccessor().setPredecessor(actualElement.getPredecessor());
-            }
-            laenge--;
-        }
+        deleteListEntry(findElementAtPosition(getFirstPosOf(value)));
     }
 
     public void deleteAllOf(IValueElement value)
     {
-
+        IListElement actualElement;
+        do
+        {
+            actualElement = findElementAtPosition(getFirstPosOf(value));
+            deleteListEntry(actualElement);
+        }
+        while (actualElement != null && actualElement != head);
     }
 
     public boolean member(IValueElement value)
@@ -168,6 +159,24 @@ public class List implements IList
         else
         {
             return null;
+        }
+    }
+
+    private void deleteListEntry (IListElement entry)
+    {
+        if (entry!=null && entry!=head)
+        {
+            if (entry.getSuccessor() == null)
+            {
+                entry.getPredecessor().setSuccessor(null);
+                head.setPredecessor(entry.getPredecessor());
+            }
+            else
+            {
+                entry.getPredecessor().setSuccessor(entry.getSuccessor());
+                entry.getSuccessor().setPredecessor(entry.getPredecessor());
+            }
+            laenge--;
         }
     }
 }
