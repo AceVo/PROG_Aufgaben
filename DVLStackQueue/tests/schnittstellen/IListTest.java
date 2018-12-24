@@ -168,5 +168,21 @@ class IListTest
 
     @Test void reverse()
     {
+        myList.insertAtTheEnd(myValueElement1);
+        myList.insertAtTheEnd(myValueElement2);
+        myList.insertAtTheEnd(myValueElement3);
+        myList.insertAtTheEnd(myValueElement4);
+
+        myList.reverse();
+
+        assertTrue(myList.getHead().getPredecessor().getValueElement()==myValueElement1);
+        assertTrue(myList.getHead().getSuccessor().getValueElement()==myValueElement4);
+        assertTrue(myList.getElementAt(1)==myValueElement4);
+        assertTrue(myList.getElementAt(2)==myValueElement3);
+        assertTrue(myList.getElementAt(3)==myValueElement2);
+        assertTrue(myList.getElementAt(4)==myValueElement1);
+        assertTrue(myList.getHead().getPredecessor().getSuccessor()==null);
+        assertTrue(myList.getHead().getSuccessor().getPredecessor()==myList.getHead());
+
     }
 }

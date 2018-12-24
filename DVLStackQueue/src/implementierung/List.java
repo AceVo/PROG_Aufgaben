@@ -136,7 +136,32 @@ public class List implements IList
 
     public void reverse()
     {
+        IListElement oldPredecessor, oldSuccessor, actualElement;
 
+        oldPredecessor = head.getPredecessor();
+        oldSuccessor = head.getSuccessor();
+        head.setPredecessor(oldSuccessor);
+        head.setSuccessor(oldPredecessor);
+
+        do
+        {
+            actualElement = oldSuccessor;
+            oldPredecessor = actualElement.getPredecessor();
+            oldSuccessor = actualElement.getSuccessor();
+
+            if (oldPredecessor == head)
+            {
+                actualElement.setSuccessor(null);
+            }
+            else
+            {
+                actualElement.setSuccessor(oldPredecessor);
+            }
+            actualElement.setPredecessor(oldSuccessor);
+        }
+        while(oldSuccessor != null);
+
+        actualElement.setPredecessor(head);
     }
 
     private IListElement findElementAtPosition(int searchPos)
