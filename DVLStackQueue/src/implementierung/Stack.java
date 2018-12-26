@@ -27,7 +27,7 @@ public class Stack implements IStack
 
     public boolean isEmpty()
     {
-        return false;
+        return stack.getLength()==0;
     }
 
     public boolean isFull()

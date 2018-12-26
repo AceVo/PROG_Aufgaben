@@ -23,6 +23,7 @@ class IStackTest
 
     @Test void isEmpty()
     {
+        assertTrue(myStack.isEmpty());
     }
 
     @Test void isFull()
