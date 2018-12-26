@@ -8,6 +8,8 @@ public class Stack implements IStack
 
     private List stack;
 
+    private static final int MAXLENGTH = 7;
+
     public Stack()
     {
         stack = new List();
@@ -20,7 +22,7 @@ public class Stack implements IStack
 
     public int getSize()
     {
-        return 0;
+        return stack.getLength();
     }
 
     public boolean isEmpty()

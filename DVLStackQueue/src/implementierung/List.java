@@ -221,4 +221,9 @@ public class List implements IList
             laenge--;
         }
     }
+
+    protected int getLength()
+    {
+        return laenge;
+    }
 }
