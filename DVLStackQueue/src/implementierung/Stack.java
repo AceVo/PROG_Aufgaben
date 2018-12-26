@@ -42,7 +42,10 @@ public class Stack implements IStack
 
     public void push(int value)
     {
-
+        if (value>=0 && getSize()<MAXLENGTH)
+        {
+            stack.insertAtTheEnd(new ValueElement(null,value));
+        }
     }
 
     public int top()
