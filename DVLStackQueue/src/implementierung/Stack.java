@@ -5,9 +5,17 @@ import schnittstellen.IStack;
 
 public class Stack implements IStack
 {
+
+    private List stack;
+
+    public Stack()
+    {
+        stack = new List();
+    }
+
     public IList getDVL()
     {
-        return null;
+        return stack;
     }
 
     public int getSize()
