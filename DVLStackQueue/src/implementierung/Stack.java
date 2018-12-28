@@ -34,7 +34,7 @@ public class Stack implements IStack
 
     public boolean isFull()
     {
-        return false;
+        return getSize()==7;
     }
 
     public int pop()

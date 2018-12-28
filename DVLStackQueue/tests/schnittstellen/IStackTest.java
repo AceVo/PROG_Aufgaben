@@ -28,6 +28,21 @@ class IStackTest
 
     @Test void isFull()
     {
+        assertFalse(myStack.isFull());
+        myStack.push(1);
+        assertFalse(myStack.isFull());
+        myStack.push(2);
+        assertFalse(myStack.isFull());
+        myStack.push(3);
+        assertFalse(myStack.isFull());
+        myStack.push(4);
+        assertFalse(myStack.isFull());
+        myStack.push(5);
+        assertFalse(myStack.isFull());
+        myStack.push(6);
+        assertFalse(myStack.isFull());
+        myStack.push(7);
+        assertTrue(myStack.isFull());
     }
 
     @Test void pop()
