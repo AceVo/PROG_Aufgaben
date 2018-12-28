@@ -60,6 +60,11 @@ public class Stack implements IStack
 
     public int top()
     {
-        return 0;
+        if (getSize()>0)
+        {
+            return stack.getElementAt(1).getValue();
+        }
+
+        return -1;
     }
 }

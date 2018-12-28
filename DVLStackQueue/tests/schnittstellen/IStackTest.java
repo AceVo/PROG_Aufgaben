@@ -98,5 +98,16 @@ class IStackTest
 
     @Test void top()
     {
+        assertTrue(myStack.isEmpty());
+        assertTrue(myStack.top()==-1);
+
+        myStack.push(1);
+        assertTrue(myStack.top()==1);
+        assertTrue(myStack.getSize()==1);
+
+        myStack.push(2);
+        myStack.push(3);
+        assertTrue(myStack.top()==3);
+        assertTrue(myStack.getSize()==3);
     }
 }
