@@ -19,10 +19,39 @@ class IStackTest
     @Test void getSize()
     {
         assertTrue(myStack.getSize()==0);
+
+        myStack.pop();
+        assertTrue(myStack.getSize()==0);
+
+        myStack.push(1);
+        assertTrue(myStack.getSize()==1);
+
+        myStack.push(2);
+        myStack.push(3);
+        myStack.push(4);
+        assertTrue(myStack.getSize()==4);
+
+        myStack.push(5);
+        myStack.push(6);
+        myStack.push(7);
+        assertTrue(myStack.getSize()==7);
+
+        myStack.push(8);
+        assertTrue(myStack.getSize()==7);
+
+        myStack.pop();
+        myStack.pop();
+        assertTrue(myStack.getSize()==5);
     }
 
     @Test void isEmpty()
     {
+        assertTrue(myStack.isEmpty());
+
+        myStack.push(1);
+        assertFalse(myStack.isEmpty());
+
+        myStack.pop();
         assertTrue(myStack.isEmpty());
     }
 
