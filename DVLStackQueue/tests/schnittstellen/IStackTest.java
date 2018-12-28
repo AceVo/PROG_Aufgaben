@@ -32,6 +32,27 @@ class IStackTest
 
     @Test void pop()
     {
+        assertTrue(myStack.getSize()==0);
+        assertTrue(myStack.isEmpty());
+
+        myStack.push(1);
+        myStack.push(2);
+        myStack.push(3);
+        myStack.push(4);
+        assertTrue(myStack.getSize()==4);
+
+        assertTrue(myStack.pop()==4);
+        assertTrue(myStack.getSize()==3);
+
+        assertTrue(myStack.pop()==3);
+        assertTrue(myStack.getSize()==2);
+
+        assertTrue(myStack.pop()==2);
+        assertTrue(myStack.getSize()==1);
+
+        myStack.pop();
+        assertTrue(myStack.getSize()==0);
+        assertTrue(myStack.pop()==-1);
     }
 
     @Test void push()
@@ -50,7 +71,7 @@ class IStackTest
 
         myStack.push(-2);
         assertTrue(myStack.getSize()==4);
-        
+
         myStack.push(5);
         myStack.push(6);
         myStack.push(7);

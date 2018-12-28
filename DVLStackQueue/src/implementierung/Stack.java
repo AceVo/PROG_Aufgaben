@@ -1,7 +1,9 @@
 package implementierung;
 
 import schnittstellen.IList;
+import schnittstellen.IListElement;
 import schnittstellen.IStack;
+import schnittstellen.IValueElement;
 
 public class Stack implements IStack
 {
@@ -37,14 +39,22 @@ public class Stack implements IStack
 
     public int pop()
     {
-        return 0;
+        if (getSize() > 0)
+        {
+            IValueElement actualElement = stack.getElementAt(1);
+            int value = actualElement.getValue();
+            stack.deleteFirstOf(actualElement);
+            return value;
+        }
+
+        return -1;
     }
 
     public void push(int value)
     {
-        if (value>=0 && getSize()<MAXLENGTH)
+        if (value >= 0 && getSize() < MAXLENGTH)
         {
-            stack.insertAtTheEnd(new ValueElement(null,value));
+            stack.insertAtPos(1,new ValueElement(null,value));
         }
     }
 
