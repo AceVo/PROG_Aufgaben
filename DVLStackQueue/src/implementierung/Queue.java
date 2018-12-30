@@ -2,6 +2,7 @@ package implementierung;
 
 import schnittstellen.IList;
 import schnittstellen.IQueue;
+import schnittstellen.IValueElement;
 
 public class Queue implements IQueue
 {
@@ -36,7 +37,14 @@ public class Queue implements IQueue
 
     public int dequeue()
     {
-        return 0;
+        if (getSize()>0)
+        {
+            IValueElement actualElement = queue.getElementAt(1);
+            int value = actualElement.getValue();
+            queue.deleteFirstOf(actualElement);
+            return value;
+        }
+        return -1;
     }
 
     public void enqueue(int value)
