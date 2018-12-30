@@ -57,6 +57,10 @@ public class Queue implements IQueue
 
     public int front()
     {
-        return 0;
+        if (getSize()>0)
+        {
+            return queue.getElementAt(1).getValue();
+        }
+        return -1;
     }
 }
