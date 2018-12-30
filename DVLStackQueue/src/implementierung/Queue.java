@@ -11,7 +11,7 @@ public class Queue implements IQueue
 
     public Queue()
     {
-      queue = new List();
+        queue = new List();
     }
 
     public IList getDVL()
@@ -21,7 +21,7 @@ public class Queue implements IQueue
 
     public int getSize()
     {
-        return 0;
+        return queue.getLength();
     }
 
     public boolean isEmpty()
