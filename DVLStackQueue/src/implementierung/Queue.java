@@ -26,12 +26,12 @@ public class Queue implements IQueue
 
     public boolean isEmpty()
     {
-        return false;
+        return queue.getLength()==0;
     }
 
     public boolean isFull()
     {
-        return false;
+        return queue.getLength()==MAXLENGTH;
     }
 
     public int dequeue()
