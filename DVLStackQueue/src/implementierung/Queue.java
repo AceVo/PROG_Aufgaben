@@ -41,7 +41,10 @@ public class Queue implements IQueue
 
     public void enqueue(int value)
     {
-
+        if (value >= 0 && getSize() < 7)
+        {
+            queue.insertAtTheEnd(new ValueElement(null,value));
+        }
     }
 
     public int front()
