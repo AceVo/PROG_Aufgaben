@@ -136,32 +136,36 @@ public class List implements IList
 
     public void reverse()
     {
-        IListElement oldPredecessor, oldSuccessor, actualElement;
-
-        oldPredecessor = head.getPredecessor();
-        oldSuccessor = head.getSuccessor();
-        head.setPredecessor(oldSuccessor);
-        head.setSuccessor(oldPredecessor);
-
-        do
+        if (getLength()>0)
         {
-            actualElement = oldSuccessor;
-            oldPredecessor = actualElement.getPredecessor();
-            oldSuccessor = actualElement.getSuccessor();
+            IListElement oldPredecessor, oldSuccessor, actualElement;
 
-            if (oldPredecessor == head)
+            oldPredecessor = head.getPredecessor();
+            oldSuccessor = head.getSuccessor();
+            head.setPredecessor(oldSuccessor);
+            head.setSuccessor(oldPredecessor);
+
+            do
             {
-                actualElement.setSuccessor(null);
+                actualElement = oldSuccessor;
+                oldPredecessor = actualElement.getPredecessor();
+                oldSuccessor = actualElement.getSuccessor();
+
+                if (oldPredecessor == head)
+                {
+                    actualElement.setSuccessor(null);
+                }
+                else
+                {
+                    actualElement.setSuccessor(oldPredecessor);
+                }
+                actualElement.setPredecessor(oldSuccessor);
             }
-            else
-            {
-                actualElement.setSuccessor(oldPredecessor);
-            }
-            actualElement.setPredecessor(oldSuccessor);
+            while (oldSuccessor != null);
+
+            actualElement.setPredecessor(head);
         }
-        while(oldSuccessor != null);
 
-        actualElement.setPredecessor(head);
     }
 
     public String toString()
@@ -211,7 +215,14 @@ public class List implements IList
             if (entry.getSuccessor() == null)
             {
                 entry.getPredecessor().setSuccessor(null);
-                head.setPredecessor(entry.getPredecessor());
+                if (entry.getPredecessor()==head)
+                {
+                    head.setPredecessor(null);
+                }
+                else
+                {
+                    head.setPredecessor(entry.getPredecessor());
+                }
             }
             else
             {

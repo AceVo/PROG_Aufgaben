@@ -113,6 +113,10 @@ class IListTest
     @Test void deleteFirstOf()
     {
         myList.insertAtTheEnd(myValueElement1);
+        myList.deleteFirstOf(myValueElement1);
+        assertTrue(myList.getHead().getPredecessor()==null);
+
+        myList.insertAtTheEnd(myValueElement1);
         myList.insertAtTheEnd(myValueElement2);
         myList.insertAtTheEnd(myValueElement3);
 
@@ -168,6 +172,8 @@ class IListTest
 
     @Test void reverse()
     {
+        myList.reverse();
+
         myList.insertAtTheEnd(myValueElement1);
         myList.insertAtTheEnd(myValueElement2);
         myList.insertAtTheEnd(myValueElement3);
