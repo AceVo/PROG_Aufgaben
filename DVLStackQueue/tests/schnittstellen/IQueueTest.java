@@ -1,5 +1,6 @@
 package schnittstellen;
 
+import implementierung.Queue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,12 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class IQueueTest
 {
 
+    private IQueue myQueue;
+
     @BeforeEach void setUp()
     {
-    }
-
-    @Test void getDVL()
-    {
+        myQueue = new Queue();
     }
 
     @Test void getSize()

@@ -5,9 +5,18 @@ import schnittstellen.IQueue;
 
 public class Queue implements IQueue
 {
+    private List queue;
+
+    private static final int MAXLENGTH = 7;
+
+    public Queue()
+    {
+      queue = new List();
+    }
+
     public IList getDVL()
     {
-        return null;
+        return queue;
     }
 
     public int getSize()
