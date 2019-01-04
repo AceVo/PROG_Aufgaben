@@ -14,7 +14,19 @@ public class Sort
 
     public static void divide(int[] list, int leftIdx, int rightIdx){}
 
-    public static void swap(int[] list, int i, int j){}
+    public static void swap(int[] list, int i, int j) throws IllegalArgumentException
+    {
+        if (i < 0 | i > list.length-1 | j < 0 | j > list.length-1)
+        {
+            throw new IllegalArgumentException();
+        }
+        else
+        {
+            int buffer = list[i];
+            list[i] = list[j];
+            list[j] = buffer;
+        }
+    }
 
     public static String toString(int[] list, int start, int end) throws IllegalArgumentException
     {

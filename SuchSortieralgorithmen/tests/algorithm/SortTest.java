@@ -43,6 +43,18 @@ class SortTest
     @Test
     void swap()
     {
+        Sort.swap(list,3,8);
+        assertTrue(list[3]==9);
+        assertTrue(list[8]==4);
+
+        Sort.swap(list, 8, 3);
+        assertTrue(list[8]==9);
+        assertTrue(list[3]==4);
+
+        assertThrows(IllegalArgumentException.class, () ->Sort.swap(list, -1, 6));
+        assertThrows(IllegalArgumentException.class, () ->Sort.swap(list, 10, 6));
+        assertThrows(IllegalArgumentException.class, () ->Sort.swap(list, 4, -6));
+        assertThrows(IllegalArgumentException.class, () ->Sort.swap(list, 4, 10));
     }
 
     @Test
