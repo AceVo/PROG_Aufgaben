@@ -12,7 +12,7 @@ public class Sort
 
     public static void quickSort(int[] list, int leftIdx, int ricghtIdx){}
 
-    public static void divide(int[] list, int leftIdx, int rightIdx){}
+    public static int divide(int[] list, int leftIdx, int rightIdx){}
 
     public static void swap(int[] list, int i, int j) throws IllegalArgumentException
     {
