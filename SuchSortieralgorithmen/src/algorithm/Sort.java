@@ -16,7 +16,29 @@ public class Sort
 
     public static void swap(int[] list, int i, int j){}
 
-    public static String toString(int[] list, int start, int end){}
+    public static String toString(int[] list, int start, int end) throws IllegalArgumentException
+    {
+        if (start < 0 || end > list.length-1 || start > end)
+        {
+            throw new IllegalArgumentException();
+        }
+        else
+        {
+            String stringArray = "---------- \r\n";
 
-    public static String toString(int[] list){}
+            for (int i = start; i <= end; i++)
+            {
+                stringArray += "Pos: " + i + " | " + list[i] + "\r\n";
+            }
+
+            stringArray += "----------";
+
+            return stringArray;
+        }
+    }
+
+    public static String toString(int[] list)
+    {
+        return toString(list, 0, list.length-1);
+    }
 }
