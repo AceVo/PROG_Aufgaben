@@ -12,40 +12,46 @@ public class Sort
 
     public static void quickSort(int[] list, int leftIdx, int ricghtIdx){}
 
-    public static int divide(int[] list, int leftIdx, int rightIdx){}
+    public static int divide(int[] list, int leftIdx, int rightIdx)
+    {
+        return 0;
+    }
 
     public static void swap(int[] list, int i, int j) throws IllegalArgumentException
     {
-        if (i < 0 | i > list.length-1 | j < 0 | j > list.length-1)
-        {
-            throw new IllegalArgumentException();
-        }
-        else
+        try
         {
             int buffer = list[i];
             list[i] = list[j];
             list[j] = buffer;
         }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static String toString(int[] list, int start, int end) throws IllegalArgumentException
     {
-        if (start < 0 || end > list.length-1 || start > end)
+        try
         {
-            throw new IllegalArgumentException();
-        }
-        else
-        {
-            String stringArray = "---------- \r\n";
-
-            for (int i = start; i <= end; i++)
+            if (start > end)
             {
-                stringArray += "Pos: " + i + " | " + list[i] + "\r\n";
+                throw new IllegalArgumentException();
             }
 
-            stringArray += "----------";
+            StringBuilder stringArrayBuilder = new StringBuilder("---------- \r\n");
+            for (int i = start; i <= end; i++)
+            {
+                stringArrayBuilder.append("Pos: ").append(i).append(" | ").append(list[i]).append("\r\n");
+            }
+            stringArrayBuilder.append("----------");
 
-            return stringArray;
+            return stringArrayBuilder.toString();
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
         }
     }
 
