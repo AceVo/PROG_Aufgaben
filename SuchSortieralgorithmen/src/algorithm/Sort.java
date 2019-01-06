@@ -26,18 +26,14 @@ public class Sort
     {
         try
         {
-            int tmp = leftIdx;
-
-            for(int j = leftIdx; j <= i; j++)
+            for(int j = leftIdx; j < i; j++)
             {
-                if (list[tmp] < list[j])
+                if (list[j] > list[j+1])
                 {
-                    tmp = j;
+                    int tmp = list[j];
+                    list[j] = list[j+1];
+                    list[j+1] = tmp;
                 }
-            }
-            if (tmp != i)
-            {
-                swap(list, tmp, i);
             }
         }
         catch (ArrayIndexOutOfBoundsException e)

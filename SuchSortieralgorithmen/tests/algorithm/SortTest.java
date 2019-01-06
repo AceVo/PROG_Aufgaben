@@ -50,17 +50,15 @@ class SortTest
     {
         assertTrue(unsortedList[9]==9);
 
-        Sort.bubbleUp(unsortedList,2,6);
-        assertTrue(unsortedList[6]==27);
-        assertTrue(unsortedList[2]==3);
+        int[] myList1 = unsortedList.clone(); //{15, 7, 3, 4, 8, 10, 27, 3, 12, 9}
+        int[] mySortedList1 = {15, 7, 3, 4, 8 ,10, 3, 27, 12, 9};
+        Sort.bubbleUp(myList1,2,7);
+        assertArrayEquals(myList1, mySortedList1);
 
-        Sort.bubbleUp(unsortedList,0,9);
-        assertTrue(unsortedList[9]==27);
-        assertTrue(unsortedList[6]==9);
-
-        Sort.bubbleUp(unsortedList,0,8);
-        assertTrue(unsortedList[8]==15);
-        assertTrue(unsortedList[0]==12);
+        int[] myList2 = unsortedList.clone(); //{15, 7, 3, 4, 8, 10, 27, 3, 12, 9}
+        int[] mySortedList2 = {7, 3, 4, 8, 10, 15, 3, 12, 9, 27};
+        Sort.bubbleUp(myList2,0,9);
+        assertArrayEquals(myList2, mySortedList2);
 
         assertThrows(IllegalArgumentException.class,()->Sort.bubbleUp(unsortedList,-2,8));
         assertThrows(IllegalArgumentException.class,()->Sort.bubbleUp(unsortedList,2,10));
