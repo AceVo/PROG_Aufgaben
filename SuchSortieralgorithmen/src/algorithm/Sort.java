@@ -42,9 +42,27 @@ public class Sort
         }
     }
 
-    public static void quickSort(int[] list ){}
+    public static void quickSort(int[] list )
+    {
+        quickSort(list,0,list.length-1);
+    }
 
-    public static void quickSort(int[] list, int leftIdx, int ricghtIdx){}
+    public static void quickSort(int[] list, int leftIdx, int rightIdx)
+    {
+        try
+        {
+            if(leftIdx < rightIdx)
+            {
+                int pivot = divide(list, leftIdx, rightIdx);
+                quickSort(list,leftIdx,pivot-1);
+                quickSort(list,pivot+1,rightIdx);
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public static int divide(int[] list, int leftIdx, int rightIdx)
     {

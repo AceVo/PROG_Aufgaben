@@ -67,6 +67,18 @@ class SortTest
     @Test
     void quickSort()
     {
+        int[] myList1 = {2,6,27,15,34,62,19,25};
+        int[] mySortedList1 = {2,6,15,19,25,27,34,62};
+        Sort.quickSort(myList1);
+        assertArrayEquals(mySortedList1, myList1);
+
+        int[] myList2 = {2,6,27,15,34,62,19,25};
+        int[] mySortedList2 = {2,6,15,19,27,34,62,25};
+        Sort.quickSort(myList2,2,6);
+        assertArrayEquals(mySortedList2, myList2);
+
+        assertThrows(IllegalArgumentException.class, ()-> Sort.quickSort(list,-1,7));
+        assertThrows(IllegalArgumentException.class, ()-> Sort.quickSort(list,1,10));
     }
 
 
