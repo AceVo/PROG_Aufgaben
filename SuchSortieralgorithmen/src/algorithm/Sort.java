@@ -6,7 +6,29 @@ public class Sort
 
     public static void bubbleSort(int[] list, int leftIdx, int rightIdx){}
 
-    public static void bubbleUp(int[] list, int leftIdx, int i){}
+    public static void bubbleUp(int[] list, int leftIdx, int i)
+    {
+        try
+        {
+            int tmp = leftIdx;
+
+            for(int j = leftIdx; j <= i; j++)
+            {
+                if (list[tmp] < list[j])
+                {
+                    tmp = j;
+                }
+            }
+            if (tmp != i)
+            {
+                swap(list, tmp, i);
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public static void quickSort(int[] list ){}
 

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortTest
 {
     private int[] list;
+    private int[] unsortedList = {15, 7, 3, 4, 8, 10, 27, 3, 12, 9};
 
     @BeforeEach
     void setUp()
@@ -27,6 +28,22 @@ class SortTest
     @Test
     void bubbleUp()
     {
+        assertTrue(unsortedList[9]==9);
+
+        Sort.bubbleUp(unsortedList,2,6);
+        assertTrue(unsortedList[6]==27);
+        assertTrue(unsortedList[2]==3);
+
+        Sort.bubbleUp(unsortedList,0,9);
+        assertTrue(unsortedList[9]==27);
+        assertTrue(unsortedList[6]==9);
+
+        Sort.bubbleUp(unsortedList,0,8);
+        assertTrue(unsortedList[8]==15);
+        assertTrue(unsortedList[0]==12);
+
+        assertThrows(IllegalArgumentException.class,()->Sort.bubbleUp(unsortedList,-2,8));
+        assertThrows(IllegalArgumentException.class,()->Sort.bubbleUp(unsortedList,2,10));
     }
 
     @Test
