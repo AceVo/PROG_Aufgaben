@@ -73,6 +73,10 @@ class SortTest
     @Test
     void divide()
     {
+        int[] myList1 = {2,6,27,15,34,62,19,25};
+        int[] mySortedList1 = {2,6,19,15,25,62,27,34};
+        assertTrue(Sort.divide(myList1,0,myList1.length-1)==4);
+        assertArrayEquals(mySortedList1,myList1);
     }
 
     @Test

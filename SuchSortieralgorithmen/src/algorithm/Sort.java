@@ -48,7 +48,40 @@ public class Sort
 
     public static int divide(int[] list, int leftIdx, int rightIdx)
     {
-        return 0;
+        try
+        {
+            int i;
+            int j;
+
+            do
+            {
+                for (i = leftIdx; i < rightIdx; i++)
+                {
+                    if (list[i] >= list[rightIdx])
+                    {
+                        break;
+                    }
+                }
+                for (j = rightIdx - 1; j > i; j--)
+                {
+                    if (list[j] < list[rightIdx])
+                    {
+                        break;
+                    }
+                }
+                if (i < j)
+                {
+                    swap(list, i, j);
+
+                }
+            }while(i<j);
+            swap(list,i,rightIdx);
+            return i;
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static void swap(int[] list, int i, int j) throws IllegalArgumentException
