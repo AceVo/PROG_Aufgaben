@@ -2,9 +2,25 @@ package algorithm;
 
 public class Sort
 {
-    public static void bubbleSort(int[] list){}
+    public static void bubbleSort(int[] list)
+    {
+        bubbleSort(list,0,list.length-1);
+    }
 
-    public static void bubbleSort(int[] list, int leftIdx, int rightIdx){}
+    public static void bubbleSort(int[] list, int leftIdx, int rightIdx)
+    {
+        try
+        {
+            for (int i=rightIdx; i>=leftIdx; i--)
+            {
+                bubbleUp(list,leftIdx,i);
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public static void bubbleUp(int[] list, int leftIdx, int i)
     {

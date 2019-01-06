@@ -9,6 +9,7 @@ class SortTest
 {
     private int[] list;
     private int[] unsortedList = {15, 7, 3, 4, 8, 10, 27, 3, 12, 9};
+    private int[] sortedList = {3, 3, 4, 7, 8, 9, 10, 12, 15, 27};
 
     @BeforeEach
     void setUp()
@@ -23,6 +24,25 @@ class SortTest
     @Test
     void bubbleSort()
     {
+        int[] myList1 = unsortedList.clone();
+        Sort.bubbleSort(myList1,8,9);
+        assertTrue(myList1[8]==9);
+        assertTrue(myList1[9]==12);
+
+        int[] myList2 = unsortedList.clone();
+        Sort.bubbleSort(myList2,0,9);
+        assertArrayEquals(myList2, sortedList);
+
+        int[] myList3 = unsortedList.clone();
+        int[] mySortedList3 = {15, 7, 3, 3, 4, 8, 10, 27, 12, 9};
+        Sort.bubbleSort(myList3, 3, 7);
+        assertArrayEquals(myList3, mySortedList3);
+        assertThrows(IllegalArgumentException.class, ()-> Sort.bubbleSort(unsortedList, -1, 9));
+        assertThrows(IllegalArgumentException.class, ()-> Sort.bubbleSort(unsortedList, 1, 10));
+
+        int[] myList4 = unsortedList.clone();
+        Sort.bubbleSort(myList4);
+        assertArrayEquals(myList4, sortedList);
     }
 
     @Test
